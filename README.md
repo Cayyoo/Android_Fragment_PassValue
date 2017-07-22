@@ -5,7 +5,6 @@ Fragment传值
 /**
  * Fragment的传值
  *
- * 参考：https://www.kancloud.cn/digest/android-lxj/138593
  *
  * Fragment，碎片，是Android 3.0之后加入的一个非常重要的概念。
  * 每个Fragment都有相应的Activity对它进行托管。
