@@ -14,7 +14,7 @@ import com.example.pass.base.BaseActivity;
  * 每个Fragment都有相应的Activity对它进行托管。
  * 正常的托管模式是Activity知道Fragment的具体情况，但Fragment不能也不应该知道Activity中的具体情况。
  * 一个Activity中可以有多个Fragment，这很自然的给大屏幕的适配提供了很便捷的方案。
- * 
+ *
  * Fragment之间不能直接通信，必须通过Activity来完成。
  *
  * 本例中：
@@ -52,13 +52,21 @@ import com.example.pass.base.BaseActivity;
 
 /**
  * Fragment传值总结：
- * 1、使用startActivity(Intent intent)传值
- * 2、使用setArguments()传参
- * 3、使用onActivityResult()回调
- * 4、使用接口回调
- * 5、第三方框架，如EventBus
+ * 1、构造方法(不推荐)
+ * 2、使用startActivity(Intent intent)传值
+ * 3、使用setArguments()传参
+ * 4、使用onActivityResult()回调
+ * 5、使用接口回调
+ * 6、第三方框架，如EventBus
  *
  * Fragment返回上一个Fragment如果直接返回不需要传参数使用getFragmentManager().popBackStack();
+ */
+
+/**
+ * 不推荐使用构造方法传参：
+ * Activity重新创建时，会重新构建它所管理的Fragment，原先的Fragment的字段值将会全部丢失，
+ * 但是通过Fragment.setArguments(Bundle bundle)方法设置的bundle会保留下来。
+ * 所以尽量使用Fragment.setArguments(Bundle bundle)方式来传递参数
  */
 public class OneActivity extends BaseActivity {
 
